@@ -1,0 +1,2 @@
+[start]
+cmd = "pnpm add -g serve && serve -s dist -l 3000"
