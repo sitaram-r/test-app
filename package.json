@@ -6,7 +6,8 @@
   "scripts": {
   "dev": "vite",
   "build": "vite build",
-  "serve": "vite preview --port 4173"
+  "serve": "vite preview --port 4173",
+  "run":"pnpm run serve"
 },
   "dependencies": {
     "react": "^19.0.0",
