@@ -25,7 +25,7 @@ jobs:
         with:
           repository: BarrierBreak/vscode-scally
           path: .a11yinspect
-          ref: main
+          ref: vscode-linter-react
           token: ${{ secrets.VSCODE_SCALLY }}
 
       - name: Setup Node.js
