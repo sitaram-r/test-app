@@ -48,7 +48,7 @@ jobs:
             --fail-on=error \
             --github \
             --github-annotations \
-            "src/**/*.{html,jsx,js}"
+            "src/**/*.{html,jsx,js,tsx}"
         env:
           GITHUB_TOKEN: ${{ secrets.VSCODE_SCALLY }}
 
@@ -60,7 +60,7 @@ jobs:
             --output=a11y-report.json \
             --severity=notice \
             --fail-on=none \
-            "src/**/*.{html,jsx,js}"
+            "src/**/*.{html,jsx,js,tsx}"
 
       - name: Run A11yInspect (HTML)
         if: always()
@@ -70,7 +70,7 @@ jobs:
             --output=a11y-report.html \
             --severity=notice \
             --fail-on=none \
-            "src/**/*.{html,jsx,js}"
+            "src/**/*.{html,jsx,js,tsx}"
 
       - name: Upload SARIF to GitHub Security
         if: always()
