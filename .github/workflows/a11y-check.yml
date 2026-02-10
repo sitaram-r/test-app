@@ -49,7 +49,7 @@ jobs:
             --github-annotations \
             "src/**/*.{html,jsx,js}"
         env:
-          GITHUB_TOKEN: ${{ secrets.vscode-scally }}
+          GITHUB_TOKEN: ${{ secrets.VSCODE_SCALLY }}
 
       - name: Run A11yInspect (JSON)
         if: always()
