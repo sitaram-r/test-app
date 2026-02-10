@@ -26,6 +26,7 @@ jobs:
           repository: BarrierBreak/vscode-scally
           path: .a11yinspect
           ref: main
+          token: ${{ secrets.VSCODE_SCALLY }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -49,7 +50,7 @@ jobs:
             --github-annotations \
             "src/**/*.{html,jsx,js}"
         env:
-          GITHUB_TOKEN: ${{ secrets.VSCODE_SCALLY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run A11yInspect (JSON)
         if: always()
