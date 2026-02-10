@@ -12,6 +12,8 @@ export default function A11yAllDefects() {
       {/* ❌ Image without alt */}
       <img src="https://via.placeholder.com/100" />
 
+      <img src="tst.jpg" />
+
       {/* ❌ Decorative image wrongly exposed */}
       <img src="https://via.placeholder.com/50" alt="decorative border" />
 
