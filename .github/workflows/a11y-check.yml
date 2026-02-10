@@ -38,6 +38,7 @@ jobs:
           cd .a11yinspect
           npm install
           npm run compile
+          cp -r runner out/cli/runner
 
       - name: Run A11yInspect (SARIF)
         run: |
