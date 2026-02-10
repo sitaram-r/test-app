@@ -23,7 +23,7 @@ jobs:
       - name: Checkout A11yInspect
         uses: actions/checkout@v4
         with:
-          repository: barrierbreak/vscode-scally
+          repository: BarrierBreak/vscode-scally
           path: .a11yinspect
           ref: main
 

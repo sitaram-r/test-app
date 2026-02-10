@@ -10,7 +10,7 @@ Since A11yInspect is not yet published on the VS Code Marketplace or npm, the wo
 
 - A GitHub account with access to both repos:
   - **test-app** (`sitaram-r/test-app`) — the React + Vite app to be checked
-  - **vscode-scally** (`barrierbreak/vscode-scally`) — the A11yInspect source code
+  - **vscode-scally** (`BarrierBreak/vscode-scally`) — the A11yInspect source code
 - The `vscode-scally` repo must be **public**, or you need to set up a Personal Access Token (PAT) for private repo access (see [Step 3b](#step-3b-if-vscode-scally-is-a-private-repo))
 
 ---
@@ -56,7 +56,7 @@ jobs:
       - name: Checkout A11yInspect
         uses: actions/checkout@v4
         with:
-          repository: barrierbreak/vscode-scally
+          repository: BarrierBreak/vscode-scally
           path: .a11yinspect
           ref: main
 
@@ -139,7 +139,7 @@ This allows the `GITHUB_TOKEN` to create issues and add PR annotations.
 
 ### Step 3b: If vscode-scally Is a Private Repo
 
-If `barrierbreak/vscode-scally` is **private**, the workflow cannot check it out with the default `GITHUB_TOKEN`. You need a Personal Access Token:
+If `BarrierBreak/vscode-scally` is **private**, the workflow cannot check it out with the default `GITHUB_TOKEN`. You need a Personal Access Token:
 
 1. Go to **https://github.com/settings/tokens** → **Generate new token (classic)**
 2. Select scopes: `repo` (full control of private repositories)
@@ -153,7 +153,7 @@ If `barrierbreak/vscode-scally` is **private**, the workflow cannot check it out
       - name: Checkout A11yInspect
         uses: actions/checkout@v4
         with:
-          repository: barrierbreak/vscode-scally
+          repository: BarrierBreak/vscode-scally
           path: .a11yinspect
           ref: main
           token: ${{ secrets.A11YINSPECT_PAT }}
@@ -290,7 +290,7 @@ Change the `ref` in the checkout step to a specific commit or tag:
       - name: Checkout A11yInspect
         uses: actions/checkout@v4
         with:
-          repository: barrierbreak/vscode-scally
+          repository: BarrierBreak/vscode-scally
           path: .a11yinspect
           ref: 8d6cdfe  # specific commit hash
 ```
