@@ -1,5 +1,18 @@
 name: Accessibility Check
 
+# This workflow demonstrates A11yInspect CLI usage in GitHub Actions
+# Configured to show ALL results including passes (Enterprise feature)
+#
+# LICENSE KEY OPTIONS:
+# 1. Production: Use repository secret (recommended)
+#    - Go to Settings > Secrets > Actions
+#    - Add secret: A11YINSPECT_LICENSE_KEY = your-enterprise-key
+#
+# 2. Demo/Testing: Use test bypass key (for demos only, not for production)
+#    - Replace ${{ secrets.A11YINSPECT_LICENSE_KEY }} with: a11yEnt
+#    - Available bypass keys: a11yPro (Pro tier), a11yEnt (Enterprise tier)
+#    - WARNING: This is for testing purposes only. Use real keys in production.
+
 on:
   push:
     branches: [main]
@@ -45,13 +58,17 @@ jobs:
           node .a11yinspect/out/cli/index.js \
             --format=sarif \
             --output=a11y-report.sarif \
-            --severity=notice \
+            --severity=pass \
             --fail-on=error \
             --github \
             --github-annotations \
             "src/**/*.{html,jsx,js,tsx}"
         env:
           GITHUB_TOKEN: ${{ secrets.VSCODE_SCALLY }}
+          # For demo/testing: Using bypass key (enabled by default)
+          A11YINSPECT_LICENSE_KEY: a11yEnt
+          # For production: Comment out the line above and uncomment the line below
+          # A11YINSPECT_LICENSE_KEY: ${{ secrets.A11YINSPECT_LICENSE_KEY }}
 
       - name: Run A11yInspect (JSON)
         if: always()
@@ -59,9 +76,14 @@ jobs:
           node .a11yinspect/out/cli/index.js \
             --format=json \
             --output=a11y-report.json \
-            --severity=notice \
+            --severity=pass \
             --fail-on=none \
             "src/**/*.{html,jsx,js,tsx}"
+        env:
+          # For demo/testing: Using bypass key (enabled by default)
+          A11YINSPECT_LICENSE_KEY: a11yEnt
+          # For production: Comment out the line above and uncomment the line below
+          # A11YINSPECT_LICENSE_KEY: ${{ secrets.A11YINSPECT_LICENSE_KEY }}
 
       - name: Run A11yInspect (HTML)
         if: always()
@@ -69,9 +91,14 @@ jobs:
           node .a11yinspect/out/cli/index.js \
             --format=html \
             --output=a11y-report.html \
-            --severity=notice \
+            --severity=pass \
             --fail-on=none \
             "src/**/*.{html,jsx,js,tsx}"
+        env:
+          # For demo/testing: Using bypass key (enabled by default)
+          A11YINSPECT_LICENSE_KEY: a11yEnt
+          # For production: Comment out the line above and uncomment the line below
+          # A11YINSPECT_LICENSE_KEY: ${{ secrets.A11YINSPECT_LICENSE_KEY }}
 
       - name: Upload SARIF to GitHub Security
         if: always()
