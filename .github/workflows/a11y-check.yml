@@ -60,7 +60,7 @@ jobs:
             --output=a11y-report.sarif \
             --severity=pass \
             --fail-on=error \
-            --github \
+            --github-grouped \
             --github-annotations \
             "src/**/*.{html,jsx,js,tsx}"
         env:
